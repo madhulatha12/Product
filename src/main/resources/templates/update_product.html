@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+    
+<head>
+    <meta charset="ISO-8859-1">
+    <title>Product Management System</title>
+
+    <link rel="stylesheet"
+	        href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+	        integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+	        crossorigin="anonymous">
+
+    
+</head>
+<body>
+    <div class="container my-2"><br>
+
+        <h2>
+            <p style="color:black;
+                    font-family:Georgia, 'Times New Roman', Times, serif;
+                    font-size: 30px">Update Product</p>
+        </h2>
+
+        <form action="#" th:action="@{/update/{id}(id=${product.id})}" th:object ="${product}" method="POST">
+            
+            <!-- Add hidden form field to handle update-->
+            <input type="hidden" th:field="*{id}"/>
+            
+            <label>
+                <strong>
+                    <p style="color:black;
+                    font-family:Georgia, 'Times New Roman', Times, serif;
+                    font-size: 20px">Product Name</p>
+                </strong>
+            </label>
+
+            <input type="text" th:field="*{productName}" placeholder=" Name" class="form-control mb-4 col-4"
+                required pattern="[A-Z a-z]*">
+                <label>
+                <strong>
+                    <p style="color:black;
+                    font-family:Georgia, 'Times New Roman', Times, serif;
+                    font-size: 20px">Product Price</p>
+                </strong>
+            </label>
+            <input type="text" th:field="*{price}" placeholder=" Price" class="form-control mb-4 col-4" required
+                pattern="[0-9]*">
+
+            <button type="submit" class="btn btn-info col-2"> Update</button>
+        </form>
+        
+       <hr>
+      
+
+    </div>
+</body>
+</html>
